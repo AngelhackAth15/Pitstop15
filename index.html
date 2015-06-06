@@ -10,52 +10,59 @@
 	<body>
 		
 		<div class="container" ng-controller="MainController">
-	    	<div class="row top-gap"></div>
 	    	<h1 class="text-center">For the game. For the World</h1>
 
-	    	<div class="row top-gap">
-		    	<div class="col-xs-10 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-		    		<div class="form-shape">
-						<div class="form-group">
-							<label for="setkey">SetKey:</label>
-							<input type="text" name="setkey" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label for="setvalue">SetValue:</label>
-							<input type="text" name="setvalue" class="form-control" required>
-						</div>
-						<button type="submit" class="btn btn-success">Push it</button>
+	    	<div class="form-container">
+	    		<form name="setValuesForm" ng-submit="setValuesForm.$valid && setKeyValue()" novalidate>
+					<div class="form-group col-xs-6">
+						<label for="key">SetKey:</label>
+						<input type="text" name="key" class="form-control" ng-model="setInputValues.key" required>
+						<p ng-show="setValuesForm.key.$dirty && setValuesForm.key.$error.required" class="alert-danger">Required</p>
 					</div>
-					<div class="form-shape">
-						<div class="form-group">
-							<label for="getkey">GetKey:</label>
-							<input type="text" name="getkey" class="form-control" required>
-						</div>
-						<button type="submit" class="btn btn-success">Get response</button>
+					<div class="form-group col-xs-6">
+						<label for="value">SetValue:</label>
+						<input type="text" name="value" class="form-control" ng-model="setInputValues.value" required>
+						<p ng-show="setValuesForm.value.$dirty && setValuesForm.value.$error.required" class="alert-danger">Required</p>
 					</div>
-						<div class="form-shape">
-						<div class="form-group">
-							<label for="topic">Topic:</label>
-							<input type="text" name="topic" class="form-control">
-						</div>
-						<div class="form-group">
-							<label for="message">Message:</label>
-							<input type="text" name="message" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-success">Push it</button>
+					<button type="submit" class="btn btn-success" ng-disabled="!setValuesForm.$valid">Punch it</button>
+				</form>
+
+				<form name="getValuesForm" ng-submit="getValuesForm.$valid && getKeyValue()" novalidate>
+					<div class="form-group col-xs-12">
+						<label for="key">GetKey:</label>
+						<input type="text" name="key" class="form-control" ng-model="getInputValues.key" required>
+						<p ng-show="getValuesForm.key.$dirty && getValuesForm.key.$error.required" class="alert-danger">Required</p>
 					</div>
-					<div class="form-shape">
-						<div class="form-group">
-							<label for="gettopic">Get Topic:</label>
-							<input type="text" name="gettopic" class="form-control">
-						</div>
-						<div class="form-group">
-							<label for="number">Get number:</label>
-							<input type="text" name="number" class="form-control">
-						</div>
-						<button type="submit" class="btn btn-success">Get topic</button>
+					<button type="submit" class="btn btn-success" ng-disabled="!getValuesForm.$valid">Get response</button>
+				</form>
+
+				<form name="setMessagesForm" ng-submit="setMessagesForm.$valid && setTopicMessage()" novalidate>
+					<div class="form-group col-xs-6">
+						<label for="topic">Topic:</label>
+						<input type="text" name="topic" class="form-control" ng-model="setInputMessages.topic" required>
+						<p ng-show="setMessagesForm.topic.$dirty && setMessagesForm.topic.$error.required" class="alert-danger">Required</p>
 					</div>
-				</div>
+					<div class="form-group col-xs-6">
+						<label for="message">Message:</label>
+						<input type="text" name="message" class="form-control" ng-model="setInputMessages.message" required>
+						<p ng-show="setMessagesForm.message.$dirty && setMessagesForm.message.$error.required" class="alert-danger">Required</p>
+					</div>
+					<button type="submit" class="btn btn-success" ng-disabled="!setMessagesForm.$valid">Push it</button>
+				</form>
+
+				<form name="getMessagesForm" ng-submit="getMessagesForm.$valid && getTopicMessage()" novalidate	>
+					<div class="form-group col-xs-6">
+						<label for="topic">Get Topic:</label>
+						<input type="text" name="topic" class="form-control" ng-model="getInputMessages.topic" required>
+						<p ng-show="getMessagesForm.topic.$dirty && getMessagesForm.topic.$error.required" class="alert-danger">Required</p>
+					</div>
+					<div class="form-group col-xs-6">
+						<label for="number">Get number:</label>
+						<input type="text" name="number" class="form-control" ng-model="getInputMessages.number" required>
+						<p ng-show="getMessagesForm.number.$dirty && getMessagesForm.number.$error.required" class="alert-danger">Required</p>
+					</div>
+					<button type="submit" class="btn btn-success" ng-disabled="!getMessagesForm.$valid">Get topic</button>
+				</form>
 			</div>
 	    </div>
 
