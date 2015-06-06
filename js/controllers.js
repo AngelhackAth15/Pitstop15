@@ -73,11 +73,11 @@ controller('MainController', ['$scope', '$http', function($scope, $http) {
 
     var getMessages = function(){
     	$http({
-	        url: 'my-service.com/api/v1/get-message/topics/' + $scope.getInputMessages.topic +'/'+ $scope.getInputMessages.message,
+	        url: 'my-service.com/api/v1/get-message/topics/' + $scope.getInputMessages.topic +'/'+ $scope.getInputMessages.number,
 	        method: 'POST',
 	        dataType: 'JSON',
 	        data: {
-	            message: $scope.getInputMessages.message
+	            message: $scope.getInputMessages.number
 	        }
 	    }).success(function(data, status, headers, config) {
 	        // if (data.code == 200) {
