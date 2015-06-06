@@ -1,4 +1,3 @@
-
 .container{
 	margin-top: 30px;
 }
@@ -21,8 +20,23 @@ form{
 .btn{
 	width: 95%;
 	margin-left: 15px;
+	height: 42px;
 }
 .btn,
 .alert-danger{
 	padding: 10px 12px;
+}
+/*.alert-danger-error{
+	width: 95%;
+	margin-left: 15px;
+}*/
+.check-service.btn{
+	margin-bottom: 25px;
+}
+ul{
+	padding: 0;
+	list-style: none;
+}
+.fa{
+	margin-right: 5px
 }

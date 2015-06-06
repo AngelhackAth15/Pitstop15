@@ -11,6 +11,6 @@ angular.module('App', [
     $logProvider.debugEnabled(true);
 }]).run(['$rootScope', '$log', function($rootScope, $log) {
     'use strict';
-
+    $rootScope.href = 'https://pitstop15.herokuapp.com/';
 
 }]);

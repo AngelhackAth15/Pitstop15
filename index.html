@@ -4,6 +4,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Pitstop</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,55 +14,73 @@
 	    	<h1 class="text-center">For the game. For the World</h1>
 
 	    	<div class="form-container">
+
+				<button type="submit" class="btn check-service btn-{{checkServiceClass}}" ng-click="checkService()" ng-show="!startService">{{checkServiceTxt}}</button>
+				<a href="javascript:void(0)" class="btn btn-default check-service disabled" ng-show="startService"><i class="fa fa-refresh fa-spin"></i></a>
+
 	    		<form name="setValuesForm" ng-submit="setValuesForm.$valid && setKeyValue()" novalidate>
 					<div class="form-group col-xs-6">
-						<label for="key">SetKey:</label>
+						<label for="key">Set Key</label>
 						<input type="text" name="key" class="form-control" ng-model="setInputValues.key" required>
 						<p ng-show="setValuesForm.key.$dirty && setValuesForm.key.$error.required" class="alert-danger">Required</p>
 					</div>
 					<div class="form-group col-xs-6">
-						<label for="value">SetValue:</label>
+						<label for="value">Set Value</label>
 						<input type="text" name="value" class="form-control" ng-model="setInputValues.value" required>
 						<p ng-show="setValuesForm.value.$dirty && setValuesForm.value.$error.required" class="alert-danger">Required</p>
 					</div>
-					<button type="submit" class="btn btn-success" ng-disabled="!setValuesForm.$valid">Punch it</button>
+					<button type="submit" class="btn btn-success" ng-disabled="!setValuesForm.$valid" ng-show="!setValuesDisabledBtn">Submit</button>
+					<a href="javascript:void(0)" class="btn btn-success disabled" ng-show="setValuesDisabledBtn"><i class="fa fa-refresh fa-spin"></i></a>
 				</form>
 
 				<form name="getValuesForm" ng-submit="getValuesForm.$valid && getKeyValue()" novalidate>
 					<div class="form-group col-xs-12">
-						<label for="key">GetKey:</label>
+						<label for="key">GetKey</label>
 						<input type="text" name="key" class="form-control" ng-model="getInputValues.key" required>
 						<p ng-show="getValuesForm.key.$dirty && getValuesForm.key.$error.required" class="alert-danger">Required</p>
+						<p class="col-xs-12 alert-danger alert-danger-error" ng-show="showErrorValue">{{responseValue}}</p>
 					</div>
-					<button type="submit" class="btn btn-success" ng-disabled="!getValuesForm.$valid">Get response</button>
+					<div class="form-group col-xs-12" ng-show="showValue">{{responseValue}}</div>
+					
+					<button type="submit" class="btn btn-success" ng-disabled="!getValuesForm.$valid" ng-show="!getValuesDisabledBtn">Show Value</button>
+					<a href="javascript:void(0)" class="btn btn-success disabled" ng-show="getValuesDisabledBtn"><i class="fa fa-refresh fa-spin"></i></a>
 				</form>
 
 				<form name="setMessagesForm" ng-submit="setMessagesForm.$valid && setTopicMessage()" novalidate>
 					<div class="form-group col-xs-6">
-						<label for="topic">Topic:</label>
+						<label for="topic">Topic</label>
 						<input type="text" name="topic" class="form-control" ng-model="setInputMessages.topic" required>
 						<p ng-show="setMessagesForm.topic.$dirty && setMessagesForm.topic.$error.required" class="alert-danger">Required</p>
 					</div>
 					<div class="form-group col-xs-6">
-						<label for="message">Message:</label>
+						<label for="message">Message</label>
 						<input type="text" name="message" class="form-control" ng-model="setInputMessages.message" required>
 						<p ng-show="setMessagesForm.message.$dirty && setMessagesForm.message.$error.required" class="alert-danger">Required</p>
 					</div>
-					<button type="submit" class="btn btn-success" ng-disabled="!setMessagesForm.$valid">Push it</button>
+					<button type="submit" class="btn btn-success" ng-disabled="!setMessagesForm.$valid" ng-show="!setMessagesDisabledBtn">Submit</button>
+					<a href="javascript:void(0)" class="btn btn-success disabled" ng-show="setMessagesDisabledBtn"><i class="fa fa-refresh fa-spin"></i></a>
 				</form>
 
 				<form name="getMessagesForm" ng-submit="getMessagesForm.$valid && getTopicMessage()" novalidate	>
 					<div class="form-group col-xs-6">
-						<label for="topic">Get Topic:</label>
+						<label for="topic">Get Topic</label>
 						<input type="text" name="topic" class="form-control" ng-model="getInputMessages.topic" required>
 						<p ng-show="getMessagesForm.topic.$dirty && getMessagesForm.topic.$error.required" class="alert-danger">Required</p>
+						<p class="col-xs-12 alert-danger alert-danger-error" ng-show="showErrorTopicValue">{{responseErrorTopic}}</p>
 					</div>
 					<div class="form-group col-xs-6">
-						<label for="number">Get number:</label>
+						<label for="number">Messages Number</label>
 						<input type="text" name="number" class="form-control" ng-model="getInputMessages.number" required>
 						<p ng-show="getMessagesForm.number.$dirty && getMessagesForm.number.$error.required" class="alert-danger">Required</p>
 					</div>
-					<button type="submit" class="btn btn-success" ng-disabled="!getMessagesForm.$valid">Get topic</button>
+
+					<div class="form-group col-xs-12" ng-show="showMessageList">
+						<ul>
+							<li ng-repeat="item in items"><i class="fa fa-envelope-o"></i>{{item}}</li>
+						</ul>
+					</div>
+					<button type="submit" class="btn btn-success" ng-disabled="!getMessagesForm.$valid" ng-show="!getMessagesDisabledBtn">Show Messages</button>
+					<a href="javascript:void(0)" class="btn btn-success disabled" ng-show="getMessagesDisabledBtn"><i class="fa fa-refresh fa-spin"></i></a>
 				</form>
 			</div>
 	    </div>
