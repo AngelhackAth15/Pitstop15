@@ -1,8 +1,5 @@
 .container{
-	margin-top: 30px;
-}
-.top-gap {
-	margin-top: 50px;
+	margin-top: 20px;
 }
 .form-shape {
   margin-top: 40px;
@@ -12,7 +9,7 @@
 	margin: 30px auto 100px auto;
 }
 form{
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 }
 .form-control{
 	height: 42px;
@@ -27,7 +24,7 @@ form{
 	padding: 10px 12px;
 }
 .check-service.btn{
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 }
 ul{
 	padding: 0;
