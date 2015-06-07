@@ -26,10 +26,6 @@ form{
 .alert-danger{
 	padding: 10px 12px;
 }
-/*.alert-danger-error{
-	width: 95%;
-	margin-left: 15px;
-}*/
 .check-service.btn{
 	margin-bottom: 25px;
 }
@@ -39,4 +35,24 @@ ul{
 }
 .fa{
 	margin-right: 5px
+}
+.response-value{
+	width: 95%;
+	margin-left: 15px;
+	padding: 10px 12px;
+	height: 42px;
+	margin-bottom: 10px;
+}
+.blue,
+.yellow,
+.red{
+	color: #ffffff;
+	background-color: blue;
+}
+.yellow{
+	color: #2d2d2d;
+	background-color: yellow;
+}
+.red{
+	background-color: red;
 }
