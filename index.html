@@ -40,7 +40,7 @@
 						<p ng-show="getValuesForm.key.$dirty && getValuesForm.key.$error.required" class="alert-danger">Required</p>
 						<p class="col-xs-12 alert-danger alert-danger-error" ng-show="showErrorValue">{{responseValue}}</p>
 					</div>
-					<div class="form-group col-xs-12" ng-show="showValue">{{responseValue}}</div>
+					<div class="col-xs-12 response-value {{responseValue}}" ng-show="showValue">{{responseValue}}</div>
 					
 					<button type="submit" class="btn btn-success" ng-disabled="!getValuesForm.$valid" ng-show="!getValuesDisabledBtn">Show Value</button>
 					<a href="javascript:void(0)" class="btn btn-success disabled" ng-show="getValuesDisabledBtn"><i class="fa fa-refresh fa-spin"></i></a>
