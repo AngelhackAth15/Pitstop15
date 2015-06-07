@@ -1,9 +1,6 @@
 angular.module('App', [
     'ngSanitize',
-    'App.services',
     'App.controllers',
-    'App.directives',
-    'App.filters'
 ]).config(['$logProvider', function($logProvider) {
     'use strict';
 
