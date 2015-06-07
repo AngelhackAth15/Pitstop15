@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+ruby '2.1.1'
+
+gem 'sinatra'
+gem 'thin'
+gem 'json'
+gem 'redis'
+
+group :development do
+  gem 'shotgun'
+end
